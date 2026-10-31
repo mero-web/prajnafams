@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0b0b">
+<title>Prajna's Family — Private Archive</title>
+<style>
+:root{--bg:#090909;--panel:#121212;--panel2:#181818;--gold:#c9a45c;--gold2:#f0d69b;--muted:#aaa397;--line:rgba(201,164,92,.25);--white:#f4f0e8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#302515 0%,#111 38%,#080808 78%);color:var(--white);font-family:Georgia,"Times New Roman",serif;min-height:100vh}
+button,input,textarea{font:inherit}.topbar{display:flex;justify-content:space-between;align-items:center;padding:22px clamp(18px,5vw,72px);border-bottom:1px solid var(--line);background:#090909d9;position:sticky;top:0;z-index:5;backdrop-filter:blur(14px)}
+.brand{font-size:17px;letter-spacing:.2em;color:var(--gold2);text-transform:uppercase}.topbar small{font:10px Arial,sans-serif;letter-spacing:.2em;color:var(--muted)}
+main{max-width:1180px;margin:auto;padding:58px 24px 90px}.eyebrow{font:11px Arial,sans-serif;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;text-align:center}
+h1{text-align:center;font-size:clamp(38px,7vw,76px);font-weight:400;letter-spacing:.035em;margin:14px 0 12px}.intro{text-align:center;color:#b9b1a3;font:14px/1.8 Arial,sans-serif;max-width:600px;margin:0 auto 46px}
+.section-head{display:flex;align-items:center;gap:18px;margin:48px 0 22px}.section-head h2{font-size:22px;font-weight:400;letter-spacing:.12em;color:var(--gold2);margin:0}.section-head span{height:1px;background:var(--line);flex:1}.section-head small{font:10px Arial,sans-serif;letter-spacing:.18em;color:var(--muted)}
+.family-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}.person-card{border:1px solid var(--line);background:linear-gradient(145deg,#1b1a17,#0e0e0e);padding:10px;text-align:left;color:inherit;cursor:pointer;transition:.25s;min-width:0}.person-card:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 12px 35px #0008}.portrait{height:190px;background:linear-gradient(145deg,#29251e,#111);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.portrait img{width:100%;height:100%;object-fit:cover;display:block}.portrait .placeholder{font-size:46px;color:#80683d;opacity:.75}.portrait:after{content:"";position:absolute;inset:0;border:1px solid #ffffff12;pointer-events:none}.card-meta{padding:13px 4px 7px}.role{font:9px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}.person-name{font-size:18px;margin:7px 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.person-call{font:11px Arial,sans-serif;color:var(--muted)}
+.footer-note{text-align:center;color:#716b60;font:11px/1.7 Arial,sans-serif;margin-top:54px}
+.overlay{position:fixed;inset:0;background:#000c;z-index:10;display:none;align-items:center;justify-content:center;padding:20px;overflow:auto}.overlay.open{display:flex}.modal{width:min(760px,100%);max-height:90vh;overflow:auto;background:linear-gradient(145deg,#1a1916,#0b0b0b);border:1px solid var(--gold);box-shadow:0 25px 90px #000;position:relative}.modal-top{display:flex;justify-content:space-between;align-items:center;padding:17px 22px;border-bottom:1px solid var(--line)}.zone-label{font:10px Arial,sans-serif;letter-spacing:.25em;color:var(--gold)}.close{background:none;border:0;color:var(--gold2);font:26px Arial;cursor:pointer}.modal-body{padding:26px;display:grid;grid-template-columns:220px 1fr;gap:26px}.modal-photo{height:280px;background:#211d16;display:flex;align-items:center;justify-content:center;color:#8b7040;font-size:54px;overflow:hidden}.modal-photo img{width:100%;height:100%;object-fit:cover}.modal h3{font-size:31px;font-weight:400;margin:0 0 5px}.subtitle{font:12px Arial,sans-serif;color:var(--gold);margin-bottom:22px}.white-description{padding:15px 16px;margin:0 0 20px;border-left:2px solid var(--gold);background:#ffffff06}.description-label{font:9px Arial,sans-serif;letter-spacing:.2em;color:var(--gold);margin-bottom:8px}.white-description p{font:13px/1.75 Arial,sans-serif;color:#d8d0c2;margin:0;white-space:pre-wrap;overflow-wrap:anywhere}.detail-list{display:grid;grid-template-columns:110px 1fr;gap:12px 10px;font:13px/1.5 Arial,sans-serif}.detail-list dt{color:#9b927f}.detail-list dd{margin:0;color:#eee8dc;overflow-wrap:anywhere}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.gold-btn,.outline-btn{padding:12px 17px;border:1px solid var(--gold);cursor:pointer;font:10px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase}.gold-btn{background:var(--gold);color:#111}.outline-btn{background:transparent;color:var(--gold2)}.grey-content{padding:28px}.grey-warning{font:11px/1.7 Arial,sans-serif;color:#a69b88;border-left:2px solid var(--gold);padding-left:13px;margin-bottom:25px}.grey-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.grey-item{padding:17px;border:1px solid var(--line);background:#ffffff04}.grey-item label{display:block;font:9px Arial,sans-serif;letter-spacing:.18em;color:var(--gold);margin-bottom:9px}.grey-item p{font:14px/1.6 Arial,sans-serif;color:#eee8dc;margin:0;white-space:pre-wrap;overflow-wrap:anywhere}.grey-item.wide{grid-column:1/-1}
+@media(max-width:850px){.family-grid{grid-template-columns:repeat(3,1fr)}.portrait{height:170px}}
+@media(max-width:560px){main{padding:42px 15px 70px}.family-grid{grid-template-columns:repeat(2,1fr);gap:10px}.portrait{height:155px}.person-name{font-size:16px}.topbar{padding:17px}.topbar small{display:none}.modal-body{grid-template-columns:1fr;padding:18px}.modal-photo{height:230px}.grey-content{padding:18px}.grey-grid{grid-template-columns:1fr}.grey-item.wide{grid-column:auto}.detail-list{grid-template-columns:95px 1fr}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="brand">Prajna's Family</div><small>PRIVATE FAMILY ARCHIVE · EST. 20XX</small></header>
+<main>
+  <div class="eyebrow">The family collection</div>
+  <h1>Prajna's Family</h1>
+  <p class="intro">A private archive of people, stories, and personal histories.<br>Choose a profile to explore its White Zone.</p>
+
+  <div class="section-head"><h2>The Parents</h2><span></span><small>02 PROFILES</small></div>
+  <div class="family-grid" id="parents"></div>
+  <div class="section-head"><h2>The Children</h2><span></span><small>08 PROFILES</small></div>
+  <div class="family-grid" id="children"></div>
+  <p class="footer-note">PRAJNA'S FAMILY · A PRIVATE ARCHIVE<br>Prototype interface — replace the sample profile data and photo links in the code.</p>
+</main>
+
+<div class="overlay" id="whiteOverlay" aria-hidden="true">
+ <section class="modal" role="dialog" aria-modal="true" aria-labelledby="whiteName">
+  <div class="modal-top"><span class="zone-label">WHITE ZONE · PROFILE</span><button class="close" onclick="closeModal('whiteOverlay')" aria-label="Close">×</button></div>
+  <div class="modal-body">
+   <div class="modal-photo" id="whitePhoto">✧</div>
+   <div><h3 id="whiteName">Profile Name</h3><div class="subtitle" id="whiteRole">Family member</div>
+    <div class="white-description"><div class="description-label">PROFILE DESCRIPTION</div><p id="whiteDescription">[Tulis deskripsi singkat tentang anggota keluarga ini.]</p></div>
+    <dl class="detail-list"><dt>Nama asli</dt><dd id="realName">—</dd><dt>Panggilan</dt><dd id="nickname">—</dd><dt>Pekerjaan</dt><dd id="job">—</dd><dt>Umur</dt><dd id="age">—</dd></dl>
+    <div class="actions"><button class="gold-btn" id="showMore">Show More ↗</button><button class="outline-btn" id="pinterestLink" style="display:none">Photo source ↗</button></div>
+   </div>
+  </div>
+ </section>
+</div>
+
+<div class="overlay" id="greyOverlay" aria-hidden="true">
+ <section class="modal" role="dialog" aria-modal="true" aria-labelledby="greyName">
+  <div class="modal-top"><span class="zone-label">GREY ZONE · RESTRICTED FILE</span><button class="close" onclick="closeModal('greyOverlay')" aria-label="Close">×</button></div>
+  <div class="grey-content">
+   <h3 id="greyName" style="font-weight:400;margin:0 0 8px">Profile Name</h3>
+   <p class="grey-warning">Restricted archive view. This section is a fictional/private prototype area. Add only information you are authorized to store and share.</p>
+   <div class="grey-grid">
+    <div class="grey-item"><label>CODE NAME</label><p id="codeName">—</p></div>
+    <div class="grey-item"><label>PEKERJAAN TABU</label><p id="tabooWork">—</p></div>
+    <div class="grey-item"><label>AFILIASI</label><p id="affiliation">—</p></div>
+    <div class="grey-item"><label>PENCAPAIAN</label><p id="achievement">—</p></div>
+   </div>
+  </div>
+ </section>
+</div>
+
+<script>
+/*
+  EDIT PROFIL DI BAGIAN INI:
+  - name, realName, nickname, job, age: data White Zone
+  - description: deskripsi profil yang tampil di White Zone
+  - codeName, tabooWork, affiliation, achievement: data Grey Zone
+  - photoUrl: URL GAMBAR LANGSUNG (direct image URL)
+  - pinterestUrl: URL halaman pin Pinterest untuk tombol sumber foto
+  Tips: URL halaman pin Pinterest biasanya bukan URL gambar langsung. Isi photoUrl dengan direct image URL
+  yang bisa dibuka sebagai gambar, dan pinterestUrl dengan link pin sebagai referensi/kredit.
+*/
+const family = [
+ {id:"father",name:"Bapak",role:"Father",realName:"[Isi nama asli]",nickname:"[Isi panggilan]",job:"[Isi pekerjaan]",age:"[Isi umur]",description:"[Tulis deskripsi singkat tentang bapak: karakter, kepribadian, latar belakang, atau hal menarik yang ingin ditampilkan di White Zone.]",codeName:"[Isi code name]",tabooWork:"[Isi pekerjaan tabu]",affiliation:"[Isi afiliasi]",achievement:"[Isi pencapaian]",photoUrl:"",pinterestUrl:""},
+ {id:"mother",name:"Ibu",role:"Mother",realName:"[Isi nama asli]",nickname:"[Isi panggilan]",job:"[Isi pekerjaan]",age:"[Isi umur]",description:"[Tulis deskripsi singkat tentang ibu: karakter, kepribadian, latar belakang, atau hal menarik yang ingin ditampilkan di White Zone.]",codeName:"[Isi code name]",tabooWork:"[Isi pekerjaan tabu]",affiliation:"[Isi afiliasi]",achievement:"[Isi pencapaian]",photoUrl:"",pinterestUrl:""},
+ ...Array.from({length:8},(_,i)=>({id:"child"+(i+1),name:"Anak "+String(i+1).padStart(2,"0"),role:"Child "+String(i+1).padStart(2,"0"),realName:"[Isi nama asli]",nickname:"[Isi panggilan]",job:"[Isi pekerjaan]",age:"[Isi umur]",description:"[Tulis deskripsi singkat tentang anggota keluarga ini: karakter, kepribadian, minat, atau hal menarik lainnya.]",codeName:"[Isi code name]",tabooWork:"[Isi pekerjaan tabu]",affiliation:"[Isi afiliasi]",achievement:"[Isi pencapaian]",photoUrl:"",pinterestUrl:""}))
+];
+let activeProfile = null;
+const byId = id => document.getElementById(id);
+function makeCard(person){
+ const button=document.createElement("button");button.className="person-card";button.type="button";
+ const portrait=document.createElement("div");portrait.className="portrait";
+ if(person.photoUrl){const img=document.createElement("img");img.src=person.photoUrl;img.alt="Photo of "+person.name;img.loading="lazy";img.onerror=()=>{img.remove();portrait.innerHTML='<span class="placeholder">✧</span>'};portrait.appendChild(img)}
+ else portrait.innerHTML='<span class="placeholder">✧</span>';
+ const meta=document.createElement("div");meta.className="card-meta";
+ const role=document.createElement("div");role.className="role";role.textContent=person.role;
+ const name=document.createElement("div");name.className="person-name";name.textContent=person.name;
+ const call=document.createElement("div");call.className="person-call";call.textContent=person.nickname;
+ meta.append(role,name,call);button.append(portrait,meta);button.addEventListener("click",()=>openWhite(person.id));return button;
+}
+family.filter(p=>p.role==="Father"||p.role==="Mother").forEach(p=>byId("parents").appendChild(makeCard(p)));
+family.filter(p=>p.role.startsWith("Child")).forEach(p=>byId("children").appendChild(makeCard(p)));
+function openWhite(id){
+ activeProfile=family.find(p=>p.id===id);if(!activeProfile)return;const p=activeProfile;
+ byId("whiteName").textContent=p.name;byId("whiteRole").textContent=p.role;
+ byId("whiteDescription").textContent=p.description||"[Belum ada deskripsi profil.]";
+ byId("realName").textContent=p.realName;byId("nickname").textContent=p.nickname;byId("job").textContent=p.job;byId("age").textContent=p.age;
+ const photo=byId("whitePhoto");photo.innerHTML="";
+ if(p.photoUrl){const img=document.createElement("img");img.src=p.photoUrl;img.alt=p.name;img.onerror=()=>photo.textContent="✧";photo.appendChild(img)}else photo.textContent="✧";
+ const source=byId("pinterestLink");source.style.display=p.pinterestUrl?"inline-block":"none";source.onclick=()=>window.open(p.pinterestUrl,"_blank","noopener");
+ byId("whiteOverlay").classList.add("open");byId("whiteOverlay").setAttribute("aria-hidden","false");
+}
+byId("showMore").addEventListener("click",()=>{
+ if(!activeProfile)return;const p=activeProfile;
+ byId("greyName").textContent=p.name+" — Grey Zone";
+ byId("codeName").textContent=p.codeName;byId("tabooWork").textContent=p.tabooWork;byId("affiliation").textContent=p.affiliation;byId("achievement").textContent=p.achievement;
+ closeModal("whiteOverlay");byId("greyOverlay").classList.add("open");byId("greyOverlay").setAttribute("aria-hidden","false");
+});
+function closeModal(id){byId(id).classList.remove("open");byId(id).setAttribute("aria-hidden","true")}
+document.querySelectorAll(".overlay").forEach(el=>el.addEventListener("click",e=>{if(e.target===el)closeModal(el.id)}));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll(".overlay.open").forEach(el=>closeModal(el.id))});
+</script>
+</body>
+</html>
